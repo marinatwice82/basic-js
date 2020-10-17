@@ -89,18 +89,22 @@ describe('Transform array', () => {
             });
         });
 
+
         it.optional('control sequences work properly', () => {
             for(let i = 0; i < 50; i += 1) {
                 const { input, output } = createSample(i);
+               // output!=''&&console.log("\n Input is: "+input+"\n Output is: "+output);
                 assert.deepStrictEqual(transform(input), output);
             }   
         });
+
 
         it.optional('doesn\'t change initial array', () => {
             for(let i = 0; i < 50; i += 1) {
                 const { input } = createSample(i);
                 const inputCopy = [...input];
                 transform(input);
+                //inputCopy!=''&&console.log("\n inputCopy is: "+input+"\n Input is: "+input);
                 assert.deepStrictEqual(input, inputCopy);
             }
         });
